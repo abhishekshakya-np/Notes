@@ -1,0 +1,48 @@
+
+/* Print Server Environment Variables
+display a formatted list of all the elements */
+// dd($_SERVER);
+
+
+// echo $_SERVER["REQUEST_URI"];
+
+
+/*
+ if ($_SERVER["REQUEST_URI"] == "/DynamicWebApplications/index.php") {
+     echo 'bg-gray-900 text-white';
+ }  else {
+     echo 'text-gray-300';
+ }
+ */
+
+// shortcut way to write the above code :
+//echo ($_SERVER["REQUEST_URI"] == "/DynamicWebApplications/index.php") ? 'bg-gray-900 text-white' : 'text-gray-300';
+
+
+
+// Load the configuration settings, including database credentials
+$config = require('config.php');
+// Create a new instance of the Database class using the configuration settings
+$db = new Database($config['database']);
+
+
+// Check if 'id' parameter is set in the URL query string
+// If 'id' is not set, it will not proceed to query the database
+if (isset($_GET['id']) && !empty($_GET['id'])) {
+    // Get the 'id' from the URL query string and store it in a variable
+    $id = $_GET['id'];
+
+    // Define the SQL query with a named placeholder for the 'id'
+    $query = "select * from posts where id = :id";
+
+    // Execute the query, passing the 'id' as a parameter to prevent SQL injection
+    // fetch() method retrieves the single result from the query
+    $posts = $db->query($query, [':id' => $id])->fetch();
+
+    // Dump the result for debugging purposes
+    // The function dd() is likely a custom function defined in 'functions.php' to print and stop execution
+    dd($posts);
+} else { 
+    // If 'id' is not set in the URL, handle it appropriately (e.g., display an error or redirect)
+    echo "Error: ID parameter is missing in the URL.";
+}
