@@ -1,8 +1,6 @@
 <?php
 
 
-$routes = require ('routes.php');
-
 function routeToController($uri, $routes) {
     if (array_key_exists($uri, $routes)) {
         require $routes[$uri];
@@ -24,6 +22,7 @@ function abort($code = 404) {
 
 
 // $uri = $_SERVER['REQUEST_URI'];
+$routes = require ('routes.php');
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 //parse_url will parse it and separate the path from the query string.
 
