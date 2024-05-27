@@ -1,6 +1,6 @@
-<?php require('partials/head.php') ?>
-<?php require('partials/nav.php') ?>
-<?php require('partials/banner.php') ?>
+<?php require base_path('views/partials/head.php') ?>
+<?php require base_path('views/partials/nav.php') ?>
+<?php require base_path('views/partials/banner.php') ?>
 
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
@@ -12,12 +12,12 @@
                             <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
                                 <label for="body" class="block text-sm font-medium text-gray-700 mb-2">Body</label>
                                 <textarea id="body" name="body" rows="3" class="block w-full mt-1 p-2.5 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm
-                                              placeholder=" Here's an idea for a note..." required >
-                                              <?= $_POST['body']?? '' ?>
-                                            </textarea> 
-                                              <?php if (isset($errors['body'])) : ?>
-                                              <p class="text-red-500 text-xs mt-2"><?= $errors['body'] ?></p>
-                                              <?php endif; ?>
+                                              placeholder=" Here's an idea for a note..." required>
+                                              <?= $_POST['body'] ?? '' ?>
+                                            </textarea>
+                                <?php if (isset($errors['body'])) : ?>
+                                    <p class="text-red-500 text-xs mt-2"><?= $errors['body'] ?></p>
+                                <?php endif; ?>
 
                             </div>
                         </div>
@@ -35,4 +35,4 @@
     </div>
 </main>
 
-<?php require('partials/footer.php') ?>
+<?php require base_path('views/partials/footer.php') ?>
