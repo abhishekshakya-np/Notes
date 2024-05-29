@@ -1,4 +1,9 @@
 <?php 
+
+namespace Core;
+
+use PDO;
+
 // connect to our database
 class Database 
 {   
@@ -18,7 +23,7 @@ class Database
         
         // Create a PDO connection object
         $this->connection = new PDO($dsn, $username, $password, [
-            pdo::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
     }
 
