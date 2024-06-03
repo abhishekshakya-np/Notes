@@ -11,7 +11,7 @@ $currentUserId = 1;
 // find the corresponding note
 $note = $db->query('select * from notes where id = :id', [
     'id' => $_POST['id']
-])->findOrFail();
+    ])->findOrFail();
 
 // authorize that the current user can edit the note
 authorize($note['user_id'] === $currentUserId);

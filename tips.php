@@ -20,4 +20,19 @@ shortcut for above code or refactor
 } 
 
 
+
+
+
+Github
+To see all the recent pushes from your local Git repository
+git log --grep="pushed"
+git log --grep="pushed" --author="username"
+git log --grep="pushed" --stat
+
+
+
+
+View the commit logs for the remote branch:
+git log origin/maingit log --graph --oneline --decorate --all
+
  */
