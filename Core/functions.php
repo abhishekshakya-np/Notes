@@ -4,12 +4,10 @@ use Core\Response;
 
 function dd($value)
 {
-    //Print Environment Variables
     echo "<pre>";
     var_dump($value);
     echo "</pre>";
 
-    //Terminate Script Execution
     die();
 }
 
@@ -46,4 +44,10 @@ function view($path, $attributes = [])
     extract($attributes);
 
     require base_path('views/' . $path);
+}
+
+function redirect($path)
+{
+    header("location: {$path}");
+    exit();
 }

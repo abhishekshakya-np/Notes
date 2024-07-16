@@ -3,7 +3,8 @@
 return [
     'database' => [
     'host' => 'localhost',
-    'dbname' => 'dynamicwebapplications',
+    'port' => 3306,
+    'dbname' => 'job-app',
     'charset' => 'utf8mb4'
     ]
 
